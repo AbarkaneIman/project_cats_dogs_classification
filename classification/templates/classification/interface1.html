@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface 1 - Projet de Classification</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+
+<body>
+
+    <h1 class="title">Bienvenue sur ma page</h1>
+
+    <div class="image-columns">
+        <!-- Colonne des chats -->
+        <div class="image-column">
+            <h2>Images des Chats</h2>
+            {% for image in cats_images %}
+            <img src="{% static 'images/cats/' %}{{ image }}" alt="{{ image }}">
+            {% empty %}
+            <p>Aucune image de chat trouvée.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Colonne des chiens -->
+        <div class="image-column">
+            <h2>Images des Chiens</h2>
+            {% for image in dogs_images %}
+            <img src="{% static 'images/dogs/' %}{{ image }}" alt="{{ image }}">
+            {% empty %}
+            <p>Aucune image de chien trouvée.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
